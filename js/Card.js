@@ -50,19 +50,17 @@ function Card(id, name) {
 		card.append(cardDescription)
 		return card;
 	}
-	function removeCard() {
-		var self = this;
-		$.ajax({
-		  url: baseUrl + '/card/' + self.id,
-		  method: 'DELETE',
-		  success: function(){
-			self.$element.remove();
-		  }
-		});
-	}
 }
+
 Card.prototype = {
 	removeCard: function() {
-	  this.element.remove();
+		var self = this;
+		$.ajax({
+			url: baseUrl + '/card/' + self.id,
+			method: 'DELETE',
+			success: function(){
+				self.element.remove();
+			}
+		});
 	}
 }
